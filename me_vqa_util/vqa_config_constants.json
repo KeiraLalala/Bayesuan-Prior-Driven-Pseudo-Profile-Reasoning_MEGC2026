@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "generator": "util/generate_vqa_constants_json.py",
+    "generated_utc": "2026-04-06T18:52:46.409489+00:00",
+    "notes": [
+      "This file stores static parsing/template constants for vqa_requirements.py.",
+      "Procedural normalization and parsing logic intentionally remains in Python code."
+    ]
+  },
+  "question_templates": {
+    "coarse": "What is the coarse expression class?",
+    "fine": "What is the fine-grained expression class?",
+    "single_au": "What is the action unit?",
+    "multi_au": "What are the action units?"
+  },
+  "analysis_questions": [
+    "Please analyse the micro-expression shown in this video in detail.",
+    "Provide a detailed analysis of the micro-expression observed in this clip.",
+    "Provide a comprehensive analysis of the facial micro-expression shown in this clip."
+  ],
+  "combined_reference_questions": {
+    "multi_au_fine_coarse": "What are the action units present, and based on them, what is the fine-grained expression and the coarse expression class?",
+    "single_au_fine_coarse": "What is the action unit present, and based on it, what is the fine-grained expression and the coarse expression class?"
+  },
+  "regex": {
+    "bool_au": {
+      "pattern": "^Is the action unit (.+?) shown on the face\\?$",
+      "flags": [
+        "IGNORECASE"
+      ]
+    }
+  },
+  "datasets": {
+    "target": [
+      "casme3",
+      "samm"
+    ],
+    "reference": [
+      "casme2",
+      "samm",
+      "smic"
+    ],
+    "from_video_patterns": [
+      {
+        "dataset": "casme3",
+        "video_regex": "^CAS-\\d+$",
+        "regex_flags": [
+          "IGNORECASE"
+        ]
+      },
+      {
+        "dataset": "samm",
+        "video_regex": "^SAMM-\\d+$",
+        "regex_flags": [
+          "IGNORECASE"
+        ]
+      }
+    ],
+    "fallback_dataset": "unknown"
+  },
+  "valid_labels": {
+    "coarse": [
+      "positive",
+      "negative",
+      "surprise"
+    ]
+  }
+}
